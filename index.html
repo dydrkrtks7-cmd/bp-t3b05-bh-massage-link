@@ -1,213 +1,518 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>비주류 문화 지식 저널 및 아카이브</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --cream-bg: #fdfdfa;
-      --charcoal-fg: #1c1a17;
-      --gold-accent: #c29d6d;
-      --hairline-color: #e6e3db;
-      --serif-font: 'Nanum Myeongjo', serif;
-      --sans-font: 'Outfit', sans-serif;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>발산 하이퍼블릭 위치 정보 — 라우트 파인더와 조건별 선택 안내</title>
+    <meta name="description" content="발산 하이퍼블릭의 정확한 위치와 이용 조건을 안내합니다. 네비게이션 팁, 선택 기준, 이용 전 확인사항을 한눈에 파악하세요.">
+    <meta name="keywords" content="발산 하이퍼블릭, 위치 정보, 발산역, 하이퍼블릭 이용, 조건 안내">
+    <link rel="canonical" href="https://balsan-hyperpublic-note.nrb-apgujeong-guide.xyz">
+    <meta property="og:title" content="발산 하이퍼블릭 위치 정보 — 라우트 파인더와 조건별 선택 안내">
+    <meta property="og:description" content="발산 하이퍼블릭의 정확한 위치와 이용 조건을 안내합니다. 네비게이션 팁, 선택 기준, 이용 전 확인사항을 한눈에 파악하세요.">
+    <meta property="og:url" content="https://balsan-hyperpublic-note.nrb-apgujeong-guide.xyz">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="발산 하이퍼블릭 위치 정보 — 라우트 파인더와 조건별 선택 안내">
+    <meta name="twitter:description" content="발산 하이퍼블릭의 정확한 위치와 이용 조건을 안내합니다. 네비게이션 팁, 선택 기준, 이용 전 확인사항을 한눈에 파악하세요.">
+    <meta name="bpaas-design-system" content="brutalist-avantgarde">
+    <meta name="bpaas-design-theme" content="kr-night-signal">
+    <style>
+        :root {
+            --primary: #08080f;
+            --secondary: #f0f0f5;
+            --accent: #ff5c1a;
+            --font-heading: 'Barlow Condensed', sans-serif;
+            --font-body: 'Noto Sans KR', sans-serif;
+            --gap: 48px;
+            --padding: 72px;
+            --section-gap: 120px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--primary);
+            background-image: repeating-linear-gradient(0deg, transparent, transparent 48px, rgba(255,255,255,0.05) 48px, rgba(255,255,255,0.05) 49px), repeating-linear-gradient(90deg, transparent, transparent 48px, rgba(255,255,255,0.05) 48px, rgba(255,255,255,0.05) 49px);
+            color: var(--secondary);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .rcls-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--gap);
+        }
+
+        header {
+            padding: var(--padding) 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .rcls-header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .rcls-site-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: var(--gap);
+        }
+
+        .rcls-nav-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .rcls-nav-link:hover {
+            opacity: 1;
+        }
+
+        .rcls-hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .rcls-hamburger span {
+            width: 24px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        main {
+            padding: var(--section-gap) 0;
+        }
+
+        .rcls-hero {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: var(--gap);
+            padding: var(--padding) 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: var(--section-gap);
+        }
+
+        .rcls-hero-content h1 {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            text-transform: uppercase;
+            line-height: 1.1;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .rcls-hero-content p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            max-width: 500px;
+        }
+
+        .rcls-route-badge {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background-color: rgba(255,92,26,0.1);
+            padding: 1rem;
+            border-left: 4px solid var(--accent);
+            margin-top: 2rem;
+        }
+
+        .rcls-route-badge .rcls-route-number {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .rcls-hero-visual {
+            position: relative;
+            background-color: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+        }
+
+        .rcls-timeline {
+            position: relative;
+            width: 2px;
+            height: 100%;
+            background-color: rgba(255,255,255,0.2);
+            left: 50%;
+        }
+
+        .rcls-timeline-dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .rcls-timeline-dot:nth-child(1) { top: 20%; }
+        .rcls-timeline-dot:nth-child(2) { top: 50%; }
+        .rcls-timeline-dot:nth-child(3) { top: 80%; }
+
+        .rcls-section {
+            margin-bottom: var(--section-gap);
+        }
+
+        .rcls-section-header {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--gap);
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .rcls-grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--gap);
+        }
+
+        .rcls-data-cell {
+            background-color: rgba(255,255,255,0.02);
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .rcls-data-cell h3 {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        .rcls-data-cell p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .rcls-split-section {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: var(--gap);
+            margin-bottom: var(--section-gap);
+        }
+
+        .rcls-split-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .rcls-split-content h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .rcls-split-content p {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        .rcls-split-list {
+            list-style: none;
+        }
+
+        .rcls-split-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        .rcls-faq-section {
+            background-color: rgba(255,255,255,0.02);
+            padding: var(--padding);
+            margin-bottom: var(--section-gap);
+        }
+
+        .rcls-faq-item {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 1.5rem 0;
+        }
+
+        .rcls-faq-question {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+        }
+
+        .rcls-faq-answer {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+
+        .rcls-author-block {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            padding: 2rem;
+            background-color: rgba(255,255,255,0.02);
+            border-left: 4px solid var(--accent);
+            margin-bottom: var(--section-gap);
+        }
+
+        .rcls-author-info h4 {
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.25rem;
+        }
+
+        .rcls-author-info p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: var(--padding) 0;
+            text-align: center;
+        }
+
+        .rcls-copyright {
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 768px) {
+            .rcls-hamburger {
+                display: flex;
+            }
+            nav {
+                display: none;
+            }
+            .rcls-hero {
+                grid-template-columns: 1fr;
+            }
+            .rcls-hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .rcls-grid-4 {
+                grid-template-columns: 1fr;
+            }
+            .rcls-split-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "발산 하이퍼블릭 위치 정보 — 라우트 파인더와 조건별 선택 안내",
+        "description": "발산 하이퍼블릭의 정확한 위치와 이용 조건을 안내합니다. 네비게이션 팁, 선택 기준, 이용 전 확인사항을 한눈에 파악하세요.",
+        "author": {
+            "@type": "Person",
+            "name": "지역 정보 전문가 김지수"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "발산 하이퍼블릭 가이드",
+            "url": "https://balsan-hyperpublic-note.nrb-apgujeong-guide.xyz"
+        }
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background-color: var(--cream-bg);
-      color: var(--charcoal-fg);
-      font-family: var(--sans-font);
-      line-height: 1.8;
-      padding: 0 40px;
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "발산 하이퍼블릭 위치를 찾는 가장 좋은 방법은?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "발산역 1번 출구에서 도보로 5분 거리에 위치해 있어요. 네비게이션 앱에서 '하이퍼블릭 발산'으로 검색하면 정확한 경로를 안내받을 수 있어요."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "하이퍼블릭 이용 시 주의할 점은?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "영업 시간과 예약 여부를 미리 확인하는 게 좋아요. 특히 주말에는 혼잡할 수 있으니, 가능하면 평일 오전을 추천해요."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "발산 하이퍼블릭의 접근성은 어떤가요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "발산역 근처라 대중교통으로 접근이 편리해요. 주차 공간이 넉넉하지 않을 수 있으니, 차를 가져갈 경우 미리 확인하세요."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "이용 전에 확인해야 할 조건은?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "사이트 예약 시스템에서 현재 운영 상태와 좌석 상황을 체크하세요. 별도의 이용 조건이나 제한 사항이 있을 수 있어요."
+                }
+            }
+        ]
     }
-    .wrapper {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 80px 0;
-    }
-    header {
-      border-bottom: 1px solid var(--hairline-color);
-      padding-bottom: 32px;
-      margin-bottom: 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-    .brand {
-      font-family: var(--serif-font);
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--charcoal-fg);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-    }
-    nav { display: flex; gap: 32px; }
-    nav a {
-      color: var(--charcoal-fg);
-      text-decoration: none;
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      transition: color 0.3s ease;
-    }
-    nav a:hover { color: var(--gold-accent); }
-    main { padding-bottom: 80px; }
-    .kicker {
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--gold-accent);
-      margin-bottom: 24px;
-    }
-    h1 {
-      font-family: var(--serif-font);
-      font-size: 2.5rem;
-      font-weight: 700;
-      line-height: 1.35;
-      letter-spacing: -0.02em;
-      color: var(--charcoal-fg);
-      margin-bottom: 40px;
-    }
-    .story-body {
-      font-family: var(--serif-font);
-      font-size: 1.15rem;
-      color: var(--charcoal-fg);
-      font-weight: 400;
-      text-align: justify;
-      margin-bottom: 60px;
-    }
-    .story-body p { margin-bottom: 24px; text-indent: 12px; }
-    .juice-link {
-      color: var(--gold-accent);
-      text-decoration: none;
-      border-bottom: 1px solid var(--gold-accent);
-      font-weight: 700;
-      transition: all 0.3s ease;
-    }
-    .juice-link:hover {
-      color: var(--charcoal-fg);
-      border-bottom-color: var(--charcoal-fg);
-    }
-    .editorials {
-      border-top: 1px solid var(--hairline-color);
-      padding-top: 60px;
-    }
-    .editorial-label {
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--gold-accent);
-      margin-bottom: 40px;
-    }
-    .editorial-flow {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-    }
-    .editorial-block {
-      text-decoration: none;
-      color: var(--charcoal-fg);
-      display: block;
-      border-bottom: 1px solid var(--hairline-color);
-      padding-bottom: 30px;
-    }
-    .editorial-block:hover h3 { color: var(--gold-accent); }
-    .editorial-block h3 {
-      font-family: var(--serif-font);
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      transition: color 0.3s ease;
-    }
-    .editorial-block p {
-      font-size: 0.95rem;
-      color: #555555;
-      font-weight: 300;
-    }
-    footer {
-      border-top: 1px solid var(--hairline-color);
-      padding-top: 40px;
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      color: #888888;
-    }
-    footer a { color: #888888; text-decoration: none; }
-    footer a:hover { color: var(--gold-accent); }
-    @media(max-width: 768px) {
-      header { flex-direction: column; gap: 16px; }
-      h1 { font-size: 2rem; }
-      .story-body { font-size: 1.05rem; }
-    }
-  </style>
+    </script>
 </head>
 <body>
-  <div class="container">
     <header>
-      <a href="/" class="brand">EDITORIAL.KR</a>
-      <nav><a href="index.html">HOME</a> | <a href="sitemap.xml">SITEMAP</a></nav>
-    </header>
-    <main>
-      <div class="kicker">BOUTIQUE KR / SELECTION ACCENT</div>
-      <h1>비주류 문화 지식 저널 및 아카이브</h1>
-      <div class="story-body">
-        환영합니다. 본 블로그 공간은 세련되고 품격 있는 <strong>비주류 문화</strong> 분야의 깊이 있는 전문 에세이와 실용 기술 논문을 공유하는 매니아 전용 아카이브 저널입니다. 아래의 최근 기사 목록을 통해 새로운 지식의 지평을 넓혀 보시기 바랍니다.
-      </div>
-      
-      
-      <div class="editorials">
-        <div class="editorial-label">Recent Editorial Articles</div>
-        <div class="editorial-flow">
-          
-        <a href="posts/normal-1.html" class="editorial-block">
-          <h3>1960년대 한국 영화 손글씨 포스터 서체(Typography)의 시각 디자인적 보존 가치</h3>
-          <p>디지털 폰트가 전무하던 격변의 1960년대 한국 극장가를 상징하는 극영화 손그림 포스터와 당시 간판 화가들의 붓끝에서 창조된 특유의 볼드한 고딕 타이포그래피 서체들은 당대 시대적 ...</p>
-        </a>
-      
-
-        <a href="posts/normal-2.html" class="editorial-block">
-          <h3>전통 악기 장인들의 보존 노하우: 해금 실크 현(Silk String)의 천연 비왁스 코팅 기법</h3>
-          <p>한국 전통 찰현악기인 해금의 뽕나무 현에 가해지는 마찰력을 극대화하고 온도 및 습도 편차에 따르는 실크 현의 수축 팽창을 방어하기 위해 벌꿀에서 추출한 밀랍 왁스와 천연 벌꿀을 엄...</p>
-        </a>
-      
-
-        <a href="posts/normal-3.html" class="editorial-block">
-          <h3>활판 인쇄술의 숨겨진 보석: 19세기 납 활자(Lead Type) 캐스팅 자형 조각 기술</h3>
-          <p>활자를 한 자 한 자 구리 틀에 부어 굳히던 19세기 활판 금속 활자 조각술은 잉크가 젖은 종이 속으로 압착되어 들어갈 때 생기는 특유의 깊은 양각 엠보싱 텍스처와 미세하게 무너지...</p>
-        </a>
-      
-
-        <a href="posts/juice-1.html" class="editorial-block">
-          <h3>아날로그 문화 컬렉터들이 선정한 강남 셔츠룸 트렌드 정보 공유 리포트</h3>
-          <p>시간의 깊은 숨결이 고스란히 각인된 명품 악기 해금 현의 장인정신과 잊힌 60년대 활판 서체의 고독한 인쇄 미학을 추적하며 아날로그 감성을 축적해 나가는 컬렉터분들이라면, 소중한 ...</p>
-        </a>
-      
-
-        <a href="posts/juice-2.html" class="editorial-block">
-          <h3>아날로그 문화 컬렉터들이 선정한 강남 셔츠룸 트렌드 정보 공유 리포트</h3>
-          <p>시간의 깊은 숨결이 고스란히 각인된 명품 악기 해금 현의 장인정신과 잊힌 60년대 활판 서체의 고독한 인쇄 미학을 추적하며 아날로그 감성을 축적해 나가는 컬렉터분들이라면, 소중한 ...</p>
-        </a>
-      
+        <div class="rcls-container">
+            <div class="rcls-header-inner">
+                <a href="#" class="rcls-site-title">발산 하이퍼블릭 위치 정보</a>
+                <nav>
+                    <a href="#" class="rcls-nav-link">위치 안내</a>
+                    <a href="#" class="rcls-nav-link">이용 조건</a>
+                    <a href="#" class="rcls-nav-link">FAQ</a>
+                    <a href="#" class="rcls-nav-link">.contact</a>
+                </nav>
+                <div class="rcls-hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
         </div>
-      </div>
+    </header>
+
+    <main>
+        <div class="rcls-container">
+            <section class="rcls-hero">
+                <div class="rcls-hero-content">
+                    <h1>발산 하이퍼블릭<br>정확한 위치 파악하기</h1>
+                    <p>네비게이션만으로는 놓치기 쉬운 곳이에요. 이 가이드가 발산 하이퍼블릭까지의 라우트를 명확히 보여드릴게요.</p>
+                    <div class="rcls-route-badge">
+                        <span class="rcls-route-number">Route B1</span>
+                        <span>발산역 1번 출구 도보 5분</span>
+                    </div>
+                </div>
+                <div class="rcls-hero-visual">
+                    <div class="rcls-timeline">
+                        <div class="rcls-timeline-dot"></div>
+                        <div class="rcls-timeline-dot"></div>
+                        <div class="rcls-timeline-dot"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="rcls-section">
+                <h2 class="rcls-section-header">선택 기준 4가지</h2>
+                <div class="rcls-grid-4">
+                    <div class="rcls-data-cell">
+                        <h3>위치 정확성</h3>
+                        <p>실제 주소와 내비게이션 좌표가 일치하는지 확인하세요. 발산역 주변 랜드마크를 기준으로 삼는 게 좋아요.</p>
+                    </div>
+                    <div class="rcls-data-cell">
+                        <h3>운영 시간</h3>
+                        <p>영업 시간은 시즌별로 변동될 수 있어요. 방문 전 공식 채널에서 최신 정보를 체크하는 게 필수예요.</p>
+                    </div>
+                    <div class="rcls-data-cell">
+                        <h3>예약 여부</h3>
+                        <p>일부 시간대는 예약제로 운영될 수 있어요. 별도의 예약 절차가 필요한지 미리 파악해두세요.</p>
+                    </div>
+                    <div class="rcls-data-cell">
+                        <h3>접근성</h3>
+                        <p>대중교통과 자가용 모두 고려해야 해요. 주변 주차장 정보나 지하철역과의 거리를 비교해보세요.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="rcls-section">
+                <div class="rcls-split-section">
+                    <div class="rcls-split-content">
+                        <h2>이용 전 확인사항</h2>
+                        <p>방문하기 전에 이 항목들을 체크하면 훨씬 수월해질 거예요.</p>
+                        <ul class="rcls-split-list">
+                            <li>실시간 좌석 현황 확인 가능 여부</li>
+                            <li>주변 편의시설 (주차장, 화장실 등)</li>
+                            <li>특별 입장 조건이나 제한 사항</li>
+                            <li>할인 혜택 또는 멤버십 적용 가능 여부</li>
+                        </ul>
+                    </div>
+                    <div class="rcls-split-content">
+                        <h2>조건별 적합성</h2>
+                        <p>당신의 상황에 맞는 선택을 위한 가이드예요.</p>
+                        <ul class="rcls-split-list">
+                            <li>대중교통 이용 시: 발산역 하차 후 도보 5분</li>
+                            <li>자가용 이용 시: 인근 유료 주차장 활용</li>
+                            <li>예약 없이 방문 시: 평일 오전 추천</li>
+                            <li>예약 후 방문 시: 사전 온라인 예약 필수</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="rcls-section rcls-faq-section">
+                <h2 class="rcls-section-header">자주 묻는 질문</h2>
+                <div class="rcls-faq-item">
+                    <div class="rcls-faq-question">발산 하이퍼블릭 위치를 찾는 가장 좋은 방법은?</div>
+                    <div class="rcls-faq-answer">발산역 1번 출구에서 도보로 5분 거리에 위치해 있어요. 네비게이션 앱에서 '하이퍼블릭 발산'으로 검색하면 정확한 경로를 안내받을 수 있어요.</div>
+                </div>
+                <div class="rcls-faq-item">
+                    <div class="rcls-faq-question">하이퍼블릭 이용 시 주의할 점은?</div>
+                    <div class="rcls-faq-answer">영업 시간과 예약 여부를 미리 확인하는 게 좋아요. 특히 주말에는 혼잡할 수 있으니, 가능하면 평일 오전을 추천해요.</div>
+                </div>
+                <div class="rcls-faq-item">
+                    <div class="rcls-faq-question">발산 하이퍼블릭의 접근성은 어떤가요?</div>
+                    <div class="rcls-faq-answer">발산역 근처라 대중교통으로 접근이 편리해요. 주차 공간이 넉넉하지 않을 수 있으니, 차를 가져갈 경우 미리 확인하세요.</div>
+                </div>
+                <div class="rcls-faq-item">
+                    <div class="rcls-faq-question">이용 전에 확인해야 할 조건은?</div>
+                    <div class="rcls-faq-answer">사이트 예약 시스템에서 현재 운영 상태와 좌석 상황을 체크하세요. 별도의 이용 조건이나 제한 사항이 있을 수 있어요.</div>
+                </div>
+            </section>
+
+            <div class="rcls-author-block">
+                <div class="rcls-author-info">
+                    <h4>작성자: 김지수</h4>
+                    <p>서울 지역 정보를 5년간 정리해온 로컬 가이드예요. 발산 일대의 숨은 장소와 실용적인 정보를 나누고 있어요.</p>
+                </div>
+            </div>
+        </div>
     </main>
+
     <footer>
-      <div>&copy; 2026 EDITORIAL.KR. ALL RIGHTS RESERVED.</div>
-      <div>
-        <a href="sitemap.xml">SITEMAP</a> | 
-        <a href="#">PRIVACY</a> | 
-        <a href="#">DISCLAIMER</a>
-      </div>
+        <div class="rcls-container">
+            <p class="rcls-copyright">© 2024 발산 하이퍼블릭 가이드. 모든 권리 보유.</p>
+        </div>
     </footer>
-  </div>
 </body>
 </html>
